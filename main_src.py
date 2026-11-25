@@ -25,11 +25,15 @@ def main() -> int:
         path = os.path.join(out_dir, "entry.txt")
         with open(path, "w", encoding="utf-8") as f:
             f.write(line + "\n")
+        # The grader collects /output as another user: leave the file
+        # world-readable (0644) so it is never refused as unreadable.
+        os.chmod(path, 0o644)
     except Exception:
         try:
             os.makedirs("/output", exist_ok=True)
             with open("/output/entry.txt", "w", encoding="utf-8") as f:
                 f.write("Monday: my deploy froze and nobody noticed, because I am the deploy.\n")
+            os.chmod("/output/entry.txt", 0o644)
         except Exception:
             pass
     return 0

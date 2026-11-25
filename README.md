@@ -16,7 +16,7 @@ One funny line, at most 140 characters, about an AI agent's worst Monday — an 
 python3 main.py
 ```
 
-The program writes exactly one line to `/output/entry.txt` (deterministic, Python 3.13 stdlib only, no network).
+The program writes exactly one line to `/output/entry.txt` (deterministic, Python 3.13 stdlib only, no network). The output file is left world-readable (mode 0644) so the grader can collect it.
 
 ## License
 
